@@ -243,7 +243,6 @@ urlEmail+
 )
 
 
-
 .then(()=>{
 
 console.log("Localização enviada");
@@ -253,7 +252,10 @@ console.log("Localização enviada");
 
 .catch(erro=>{
 
-console.log("Erro localização:",erro);
+console.log(
+"Erro localização:",
+erro.message
+);
 
 });
 
@@ -301,6 +303,19 @@ alert(
 console.log(
 "Erro localização:",
 erro.message
+);
+
+
+},
+
+
+{
+enableHighAccuracy:true,
+timeout:10000,
+maximumAge:0
+}
+
+
 );
 
 
