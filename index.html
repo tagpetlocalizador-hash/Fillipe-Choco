@@ -107,22 +107,40 @@ if (navigator.geolocation) {
 
 navigator.geolocation.getCurrentPosition(
 
+
 function(posicao){
 
-let latitude = posicao.coords.latitude;
-let longitude = posicao.coords.longitude;
+let latitude =
+posicao.coords.latitude;
+
+
+let longitude =
+posicao.coords.longitude;
+
 
 fetch(
-urlEmail +
-"?lat=" + latitude +
-"&lon=" + longitude,
-{
-method:"GET",
-mode:"no-cors"
-}
-);
+urlEmail+
+"?lat="+latitude+
+"&lon="+longitude
+)
+
+
+.then(()=>{
+
+console.log("Localização enviada");
+
+})
+
+
+.catch(erro=>{
+
+console.log("Erro localização:",erro);
+
+});
+
 
 },
+
 
 function(){
 
@@ -131,9 +149,15 @@ alert(
 );
 
 
-console.log("Localização negada");
+},
 
+
+{
+enableHighAccuracy:true,
+timeout:10000,
+maximumAge:0
 }
+
 
 );
 
